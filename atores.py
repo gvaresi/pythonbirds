@@ -57,11 +57,13 @@ class Ator():
 
 
 class Obstaculo(Ator):
-    pass
+    _caracter_ativo = 'O'
+    _caracter_destruido = ' '
 
 
 class Porco(Ator):
-    pass
+    _caracter_ativo = '@'
+    _caracter_destruido = "+"
 
 
 class DuploLancamentoExcecao(Exception):
@@ -73,68 +75,80 @@ class Passaro(Ator):
 
     def __init__(self, x=0, y=0):
         """
-        Método de inicialização de pássaro.
+            Método de inicialização de pássaro.
 
-        Deve chamar a inicialização de ator. Além disso, deve armazenar a posição inicial e incializar o tempo de
-        lançamento e angulo de lançamento
+            Deve chamar a inicialização de ator. Além disso, deve armazenar a posição inicial e incializar o tempo de
+            lançamento e angulo de lançamento
 
-        :param x:
-        :param y:
-        """
+            :param x:
+            :param y:
+            """
         super().__init__(x, y)
         self._x_inicial = x
         self._y_inicial = y
         self._tempo_de_lancamento = None
         self._angulo_de_lancamento = None  # radianos
 
+
     def foi_lancado(self):
         """
-        Método que retorna verdaeira se o pássaro já foi lançado e falso caso contrário
+            Método que retorna verdaeira se o pássaro já foi lançado e falso caso contrário
 
-        :return: booleano
-        """
+            :return: booleano
+            """
         return True
 
     def colidir_com_chao(self):
         """
-        Método que executa lógica de colisão com o chão. Toda vez que y for menor ou igual a 0,
-        o status dos Passaro deve ser alterado para destruido, bem como o seu caracter
+            Método que executa lógica de colisão com o chão. Toda vez que y for menor ou igual a 0,
+            o status dos Passaro deve ser alterado para destruido, bem como o seu caracter
 
-        """
+            """
         pass
 
     def calcular_posicao(self, tempo):
         """
-        Método que cálcula a posição do passaro de acordo com o tempo.
+            Método que cálcula a posição do passaro de acordo com o tempo.
 
-        Antes do lançamento o pássaro deve retornar o valor de sua posição inicial
+            Antes do lançamento o pássaro deve retornar o valor de sua posição inicial
 
-        Depois do lançamento o pássaro deve calcular de acordo com sua posição inicial, velocidade escalar,
-        ângulo de lancamento, gravidade (constante GRAVIDADE) e o tempo do jogo.
+            Depois do lançamento o pássaro deve calcular de acordo com sua posição inicial, velocidade escalar,
+            ângulo de lancamento, gravidade (constante GRAVIDADE) e o tempo do jogo.
 
-        Após a colisão, ou seja, ter seus status destruido, o pássaro deve apenas retornar a última posição calculada.
+            Após a colisão, ou seja, ter seus status destruido, o pássaro deve apenas retornar a última posição calculada.
 
-        :param tempo: tempo de jogo a ser calculada a posição
-        :return: posição x, y
-        """
+            :param tempo: tempo de jogo a ser calculada a posição
+            :return: posição x, y
+            """
         return 1, 1
 
 
     def lancar(self, angulo, tempo_de_lancamento):
         """
-        Lógica que lança o pássaro. Deve armazenar o ângulo e o tempo de lançamento para posteriores cálculo.
-        O ângulo é passado em graus e deve ser transformado em radianos
+            Lógica que lança o pássaro. Deve armazenar o ângulo e o tempo de lançamento para posteriores cálculo.
+            O ângulo é passado em graus e deve ser transformado em radianos
 
-        :param angulo:
-        :param tempo_de_lancamento:
-        :return:
-        """
+            :param angulo:
+            :param tempo_de_lancamento:
+            :return:
+            """
         pass
 
 
 class PassaroAmarelo(Passaro):
-    pass
+    _caracter_ativo = 'A'
+    _caracter_destruido = "a"
 
 
 class PassaroVermelho(Passaro):
-    pass
+    _caracter_ativo = 'V'
+    _caracter_destruido = "v"
+
+
+
+
+
+
+
+
+
